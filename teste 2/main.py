@@ -41,7 +41,7 @@ if __name__ == "__main__":
     zip_file_name = "Teste_Thiago_Fernandes.zip"
 
     # saves the dataframe as a csv file
-    df1.to_csv(file_name, index=False, encoding='utf-8')
+    df1.to_csv(file_name, index=False, encoding='utf-8', sep=";")
 
     # creates a zip file containing the csv file
     with ZipFile(zip_file_name, 'w') as zipf:
