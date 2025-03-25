@@ -9,7 +9,7 @@ if __name__ == "__main__":
     df = pd.concat(
         read_pdf(
             "Anexo_I.pdf",
-            pages="3-180",
+            pages="3-181",
             multiple_tables=False
         )
     )
