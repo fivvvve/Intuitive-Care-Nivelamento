@@ -13,7 +13,7 @@ CREATE TABLE demonstracoes_contabeis (
 	FOREIGN KEY(registro_ans) REFERENCES operadoras (registro_ans)
 )
 
-É importante destacar que para importar os dados para as tabelas foi usado o psql no terminal Windows, para acessá-lo digite o seguinte comando no terminal 'psql postgres://<username>:<password>@<host>:<port>/<database>' e substitua por seus dados. Antes de realizar a importação das demonstrações contábeis foi necessário fazer alguns tratamentos que estão descritos a seguir.
+Para importar os dados para as tabelas foi usado o psql, ele pode ser acessado a partir da interface do pgAdmin. Antes de realizar a importação das demonstrações contábeis foi necessário fazer alguns tratamentos que estão descritos a seguir.
 
 Primeiramente, substitui as vírgulas presentes nas colunas de saldo em cada arquivo por pontos, pois o Postgres separa a parte flutuante de um número utilizando um ponto. Para isso executei o seguinte comando no diretório onde todos os arquivos csv das demonstrações contábeis estavam armazenados:
 for i in ./*.csv; do     awk -F';' 'BEGIN {OFS=";"} { $5 = gensub(/,/, ".", "g", $5); $6 = gensub(/,/, ".", "g", $6); print }' "$i" > "$i.tmp" && mv "$i.tmp" "$i"; done
