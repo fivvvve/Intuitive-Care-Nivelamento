@@ -1,0 +1,22 @@
+CREATE TABLE operadoras (
+	registro_ans CHAR(6) PRIMARY KEY,
+	cnpj CHAR(14) NOT NULL UNIQUE,
+	razao_social VARCHAR(150) NOT NULL,
+	nome_fantasia VARCHAR(150),
+	modalidade VARCHAR(100) NOT NULL,
+	logradouro VARCHAR(150) NOT NULL,
+	numero VARCHAR(50) NOT NULL,
+	complemento VARCHAR(100),
+	bairro VARCHAR(100),
+	cidade VARCHAR(100) NOT NULL,
+	uf CHAR(2) NOT NULL,
+	cep CHAR(8) NOT NULL,
+	ddd CHAR(2),
+	telefone VARCHAR(20),
+	fax VARCHAR(20),
+	endereco_eletronico VARCHAR(100) DEFAULT 'desconhecido',
+	representante VARCHAR(150) NOT NULL,
+	cargo_representante VARCHAR(100) NOT NULL,
+	regiao_de_comercializacao SMALLINT,
+	data_registro_ans DATE NOT NULL DEFAULT current_date
+)
