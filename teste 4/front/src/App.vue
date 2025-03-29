@@ -257,6 +257,7 @@ tr:nth-child(even) {
   width: 500px;
   max-width: 80%;
   min-height: 200px;
+  max-height: 92vh;
   background-color: rgb(49, 49, 49);
   padding: 15px;
   border: 2px solid black;
