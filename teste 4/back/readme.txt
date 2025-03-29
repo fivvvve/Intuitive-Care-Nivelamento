@@ -16,6 +16,8 @@ pip install -r requirements.txt
 3. Run the code:
 fastapi dev main.py
 
+If you get a ModuleNotFoundError change the line 3 from main.py to <from back.routes import search> and line 3 from search.py to <from back.data import DataDep>
+
 
 You can test the routes by accessing in your browser:
 localhost:PORT/docs
