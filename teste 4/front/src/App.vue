@@ -95,7 +95,7 @@ function formatDate(date) {
     <div class="form-group">
       <label for="type">O que seus dados descrevem:</label>
       <select name="type" id="type" v-model="type">
-        <option value="text" selected>Dados Gerais</option>
+        <option value="text" selected>Razão Social, Nome Fantasia ou Representante</option>
         <option value="registro_ans">Registro ANS</option>
         <option value="cnpj">CNPJ</option>
         <option value="modalidade">Modalidade</option>
