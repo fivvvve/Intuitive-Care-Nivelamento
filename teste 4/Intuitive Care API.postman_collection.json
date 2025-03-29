@@ -1,0 +1,53 @@
+{
+	"info": {
+		"_postman_id": "88b7ed61-e382-4fa2-b593-4dfd80e9f242",
+		"name": "Intuitive Care API",
+		"description": "Intuitive Care Nivelamento Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43575223",
+		"_collection_link": "https://thiagofernandes-6040094.postman.co/workspace/Thiago-Fernandes's-Workspace~35b58e3a-8c5c-4370-824d-0ee81a4dfe8b/collection/43575223-88b7ed61-e382-4fa2-b593-4dfd80e9f242?action=share&source=collection_link&creator=43575223"
+	},
+	"item": [
+		{
+			"name": "https://intuitive-care-test4-api.vercel.app/textual-search?text=odontologia&type=modalidade",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Origin",
+						"value": "https://intuitive-care-nivelamento.vercel.app",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://intuitive-care-test4-api.vercel.app/textual-search?text=odontologia&type=modalidade",
+					"protocol": "https",
+					"host": [
+						"intuitive-care-test4-api",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"textual-search"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "odontologia",
+							"description": "text to search dataframe"
+						},
+						{
+							"key": "type",
+							"value": "modalidade",
+							"description": "type of data: 'text', 'registro_ans', 'cnpj' or 'modalidade'"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
