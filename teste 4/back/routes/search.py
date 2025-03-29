@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Response
+from enum import Enum
 from ..data import DataDep
 
 #defines router for this file
@@ -6,8 +7,15 @@ router = APIRouter (
     tags=["dataframe search"]
 )
 
+#defines available values for type query param
+class TypeEnum(str, Enum):
+    registro_ans = "registro_ans"
+    cnpj = "cnpj"
+    modalidade = "modalidade"
+    text = "text"
+
 @router.get("/textual-search", summary="Searches the dataframe according to text received")
-def search(text: str, type: str, data: DataDep, response: Response):
+def search(text: str, type: TypeEnum, data: DataDep, response: Response):
 
     #transform text received to uppercase
     text = text.upper()
