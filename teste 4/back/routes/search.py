@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Response
 from enum import Enum
-from ..data import DataDep
+from data import DataDep
 
 #defines router for this file
 router = APIRouter (
