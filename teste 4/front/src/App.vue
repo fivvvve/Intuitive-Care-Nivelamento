@@ -8,9 +8,11 @@ const type = ref("text");
 const data = ref([]);
 const modalOpened = ref(false);
 const currOper = ref();
+const loading = ref(false);
 
 // function to search for data in api
 function submit() {
+  loading.value = true;
   api.get("textual-search", {
     params: {
       text: text.value,
@@ -22,6 +24,8 @@ function submit() {
   }).catch(() => {
     // sets data variable empty in case nothing was found
     data.value = [];
+  }).finally(() => {
+    loading.value = false;
   });
 }
 
@@ -115,7 +119,8 @@ function formatDate(date) {
         <th class="large-column">Razão Social</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody v-if="!loading">
+      <p class="results-length">{{ data.length }} operadoras encontradas</p>
       <tr v-for="oper in data" :key="oper.Registro_ANS">
         <td>{{ oper.Registro_ANS }}</td>
         <td>{{ oper.CNPJ }}</td>
@@ -126,8 +131,12 @@ function formatDate(date) {
     </tbody>
   </table>
 
+  <!-- load this message while searching for data in api -->
+  <p v-if="loading">Buscando dados...</p>
+
   <!-- load this message in case any data was found -->
-  <p v-if="!data.length">Nenhum dado para mostrar</p>
+  <p v-else-if="!data.length">Nenhum dado para mostrar</p>
+
   
 </template>
 
@@ -190,9 +199,17 @@ form h2 {
 }
 
 table {
+  position: relative;
   margin: 50px auto;
   border-collapse: collapse;
   width: 80%;
+}
+
+.results-length {
+  position: absolute;
+  right: 10px;
+  top: -50px;
+  text-align: right;
 }
 
 table th {
